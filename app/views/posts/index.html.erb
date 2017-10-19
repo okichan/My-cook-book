@@ -1,7 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
+<% if @random_food %>
+<h2>your today's food</h2>
+<%= link_to post_path(@random_food) do %>
+ <%= image_tag @random_food.image %>
+ <% end %>
+ <% end %>
 <h1>Posts</h1>
-<%= link_to 'Post recipe', new_post_path %>
+<%= link_to 'Post recipe', new_post_path %> | <%= link_to 'Random food!', posts_path(random: rand(@post_count) + 1) %>
 
 
   <tbody>
