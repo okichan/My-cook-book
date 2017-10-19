@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+Post.create!(title: "Spaghetti Marinara", description: "Seafood yay", recipe: "method here", duration: 20, user_id: 1)
+Post.create!(title: "Kimchi Pancake", description: "A bit spicy yay", recipe: "method here", duration: 12, user_id: 1)

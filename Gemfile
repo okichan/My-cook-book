@@ -36,9 +36,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise' # --for login functinon and user model
 gem 'bootstrap', '~> 4.0.0.beta' # -- for beign able to use bootstrap
 gem 'carrierwave', '~> 1.0' # image uploader
-gem 'rmagick'  # to resize uploaded images
+gem 'mini_magick'  # to resize uploaded images
+
 gem 'fog' # to connect to AWS
 
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 
 group :development, :test do

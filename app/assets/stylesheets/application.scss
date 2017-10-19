@@ -1,1 +1,23 @@
 @import "bootstrap";
+
+.hero-font {
+    font-family: 'Amatic SC', cursive;
+    font-size: 300%;
+}
+
+.landing-background {
+    height: 100vh;
+    background-image: asset-data-url("landing.svg");
+    background-size: cover;
+    
+        h1 {
+            font-size: 90px;
+            font-weight: bold;
+            text-shadow: 2px 2px gray;
+            padding: 20px;
+            a {
+                
+                color: #EB5757;
+            }
+        }
+}

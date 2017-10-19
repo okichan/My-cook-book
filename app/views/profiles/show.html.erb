@@ -1,29 +1,43 @@
+<%= render 'layouts/header' %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1 class="hero-font text-center" style="padding-bottom: 30px; font-size: 5em;">User profile</h1>
+    </div>  
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <%= image_tag 'profpic.svg', width: 300 %>
+    </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @profile.image %>
-</p>
+    <div class="col-md-5">
+    
+      <p class="hero-font">
+        <%= @profile.first_name %> <%= @profile.last_name %>
+      </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
+      <p>
+        <%= @profile.bio %>
+      </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+      <p>
+        <%# @profile.image %>
+      </p>
+
+      <p>
+        <%# @profile.user %>
+      </p>
+
+      <%= link_to 'Edit profile', edit_profile_path(@profile) %>
+      <%# link_to 'Back', profiles_path %>
+  </div>
+
+    </div>
+    </div>
+</div>

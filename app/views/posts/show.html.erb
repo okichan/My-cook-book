@@ -1,34 +1,36 @@
+<%= render 'layouts/header' %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p class="hero-font text-center">
+    <strong ><%= @post.title %></strong>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+  <span style="float: left; padding-right: 40px;">
+    <%= @post.image %>
+    <%= image_tag 'http://via.placeholder.com/400x400' %>
+  </span>
 
-<p>
-  <strong>Recipe:</strong>
-  <%= @post.recipe %>
-</p>
+  <p>
+    <%= @post.description %>
+  </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @post.duration %>
-</p>
+  <p>
+    <strong>Method:</strong>
+    <%= @post.recipe %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
+  <p>
+    <%= @post.duration %> minutes
+  </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <p>
+    <strong>Posted by: </strong>
+    <%= @post.user.email %>
+  </p>
+
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+
+</div>

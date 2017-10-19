@@ -1,0 +1,12 @@
+<header class="navbar navbar-fixed-top navbar-inverse hero-font">
+  <div class="container">
+    <%= link_to "MY COOKBOOK", posts_path, id: "logo" %>
+    <nav>
+      <ul class="list-inline">
+        <li class="list-inline-item"><%= link_to "Home", root_path %> |</li>
+        <li class="list-inline-item"><%= link_to "My account", profile_path(current_user.id) %> |</li>
+        <li class="list-inline-item"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
