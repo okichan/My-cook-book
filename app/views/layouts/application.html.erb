@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <% if current_user %>
+  <header>MY COOKBOOK
+    <% if current_user.profile %>
+      <%= link_to 'my account', profile_path(current_user.profile.id)  %>
+      <% end %> |
+    <%= link_to 'sign out',  destroy_user_session_path, method: :delete%>
+  </header>
+  <% end %>
     <%= yield %>
   </body>
 </html>

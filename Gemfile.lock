@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: f2db689ba567d1a018f4dacb1ccf909adc93e887
+  specs:
+    bcrypt (3.1.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,7 +50,6 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.1.5)
       execjs
-    bcrypt (3.1.11-x64-mingw32)
     bindex (0.5.0)
     bootstrap (4.0.0.beta)
       autoprefixer-rails (>= 6.0.3)
@@ -80,6 +85,10 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.0)
     excon (0.59.0)
     execjs (2.7.0)
@@ -222,6 +231,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -346,13 +357,16 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt!
   bootstrap (~> 4.0.0.beta)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   fog
+  font-awesome-rails
   jbuilder (~> 2.5)
   pg (~> 0.18)
   puma (~> 3.7)

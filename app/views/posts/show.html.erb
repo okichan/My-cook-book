@@ -2,8 +2,13 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @post.image %>
+  <%= image_tag @post.image %>
 </p>
+
+<%= link_to fa_icon("thumbs-up 2x"), feed_back_path(like: true, post_id: @post.id), method: :post %>
+<%= link_to fa_icon("thumbs-down 2x"), feed_back_path(like: false, post_id: @post.id), method: :post %>
+
+
 
 <p>
   <strong>Title:</strong>
@@ -25,10 +30,8 @@
   <%= @post.duration %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user == @post.user %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+ |
 <%= link_to 'Back', posts_path %>

@@ -32,13 +32,15 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'dotenv-rails', groups: [:development, :test]
+gem "font-awesome-rails"
 gem 'devise' # --for login functinon and user model
 gem 'bootstrap', '~> 4.0.0.beta' # -- for beign able to use bootstrap
 gem 'carrierwave', '~> 1.0' # image uploader
-gem 'rmagick'  # to resize uploaded images
-gem 'fog' # to connect to AWS
+# gem 'rmagick'  # to resize uploaded images
+# gem 'fog' # to connect to AWS
 
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'  #for windows users
 
 
 group :development, :test do

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :post_image %>
+    <%= form.file_field :image, id: :post_image %>
   </div>
 
   <div class="field">
@@ -33,13 +33,13 @@
 
   <div class="field">
     <%= form.label :duration %>
-    <%= form.number_field :duration, id: :post_duration %>
+    <%= form.number_field :duration, id: :post_duration %> min
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :post_user_id %>
-  </div>
+  
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
 
   <div class="actions">
     <%= form.submit %>
