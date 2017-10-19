@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :posts
+  root  'landing#index'
   resources :profiles
   devise_for :users
 
-  resource :feed_back, only:[:create,:update]
-   root  'landing#index'
+  resources :posts
+    resources :feed_backs, only:[:create,:update]
+
+    resources :comments, only:[:create,:destroy]
 end

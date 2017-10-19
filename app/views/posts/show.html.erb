@@ -1,37 +1,66 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
   <%= image_tag @post.image %>
 </p>
 
-<%= link_to fa_icon("thumbs-up 2x"), feed_back_path(like: true, post_id: @post.id), method: :post %>
-<%= link_to fa_icon("thumbs-down 2x"), feed_back_path(like: false, post_id: @post.id), method: :post %>
+<% if  !current_user == @post.user %>
+
+  <% if !@post.rated_by?(current_user)%>
+    <%= link_to fa_icon("thumbs-up 2x"), feed_backs_path(like: true, post_id: @post.id), method: :post %><%= @post.feed_backs.liked.count %>
+    <%= link_to fa_icon("thumbs-down 2x"), feed_backs_path(like: false, post_id: @post.id), method: :post %><%= @post.feed_backs.unliked.count %>
+    <% else %>
+    <%= link_to fa_icon("thumbs-up 2x"), feed_back_path(@feed_back.id, like: true, post_id: @post.id), method: :put %><%= @post.feed_backs.liked.count %>
+    <%= link_to fa_icon("thumbs-down 2x"), feed_back_path(@feed_back.id, like: false, post_id: @post.id), method: :put %><%= @post.feed_backs.unliked.count %>
+    <% end %>
+    <% else %>
+    <%= fa_icon("thumbs-up 2x") %><%= @post.feed_backs.liked.count %>
+    <%= fa_icon("thumbs-down 2x") %><%= @post.feed_backs.unliked.count %>
+
+    <% end %>
 
 
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @post.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+    <p>
+      <strong>Recipe:</strong>
+      <%= @post.recipe %>
+    </p>
 
-<p>
-  <strong>Recipe:</strong>
-  <%= @post.recipe %>
-</p>
+    <p>
+      <strong>Duration:</strong>
+      <%= @post.duration %>
+    </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @post.duration %>
-</p>
+     <% if @post.comments %>
+     <div>
+      <% @post.comments.each do |comment| %>
+       <p><strong><%= comment.body %></strong> from: <%= comment.user.profile.first_name %>
+       <% if current_user == comment.user%>
+       <%= link_to 'delete', comment_path(comment, post_id: @post_id), method: :delete  %>
+       <% end %>
+       </p>
+       <% end %>
+    </div>
+      <% end %>
 
-<% if current_user == @post.user %>
-<%= link_to 'Edit', edit_post_path(@post) %>
-<% end %>
- |
-<%= link_to 'Back', posts_path %>
+      <%= form_with url:comments_path, local:true, method: :post do |f| %>
+      <%= f.text_field :body %>
+      <%= f.hidden_field :user_id, value:current_user.id %>
+      <%= f.hidden_field :post_id, value:@post.id %>
+      <%= f.button 'Send' %>
+      <% end %>
+
+    <% if current_user == @post.user %>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <% end %>
+
+      <%= link_to 'Back', posts_path %>
