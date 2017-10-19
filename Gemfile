@@ -40,6 +40,7 @@ gem 'carrierwave', '~> 1.0' # image uploader
 # gem 'rmagick'  # to resize uploaded images
 # gem 'fog' # to connect to AWS
 
+gem 'httparty'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'  #for windows users
 
 

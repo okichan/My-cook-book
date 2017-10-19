@@ -7,6 +7,18 @@
  <%= image_tag @random_food.image %>
  <% end %>
  <% end %>
+
+
+<h2>Search by ingredients</h2>
+<%= form_with url: posts_path, local: true, method: :get do |f| %>
+<%= f.text_field :word %>
+<%= f.button "serch" %>
+<% end %>
+<p>
+<%= @recipe %>
+</p>
+
+
 <h1>Posts</h1>
 <%= link_to 'Post recipe', new_post_path %> | <%= link_to 'Random food!', posts_path(random: rand(@post_count) + 1) %>
 

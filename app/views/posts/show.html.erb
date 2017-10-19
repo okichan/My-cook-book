@@ -4,7 +4,7 @@
   <%= image_tag @post.image %>
 </p>
 
-<% if  !current_user == @post.user %>
+<% if current_user != @post.user %>
 
   <% if !@post.rated_by?(current_user)%>
     <%= link_to fa_icon("thumbs-up 2x"), feed_backs_path(like: true, post_id: @post.id), method: :post %><%= @post.feed_backs.liked.count %>
@@ -13,6 +13,7 @@
     <%= link_to fa_icon("thumbs-up 2x"), feed_back_path(@feed_back.id, like: true, post_id: @post.id), method: :put %><%= @post.feed_backs.liked.count %>
     <%= link_to fa_icon("thumbs-down 2x"), feed_back_path(@feed_back.id, like: false, post_id: @post.id), method: :put %><%= @post.feed_backs.unliked.count %>
     <% end %>
+
     <% else %>
     <%= fa_icon("thumbs-up 2x") %><%= @post.feed_backs.liked.count %>
     <%= fa_icon("thumbs-down 2x") %><%= @post.feed_backs.unliked.count %>

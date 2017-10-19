@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    response = HTTParty.get("http://food2fork.com/api/search?key=ed56722ff1a2f872b479c1f8c6002118&q=#{params[:word]}")
+
+    @info = response.body
+    @recipe = @info['recipes']
+
     @posts = Post.all
     @post_count = Post.all.count
     if params[:random]
