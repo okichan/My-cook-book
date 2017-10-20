@@ -4,10 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    response = HTTParty.get("http://food2fork.com/api/search?key=ed56722ff1a2f872b479c1f8c6002118&q=#{params[:word]}")
+    response = HTTParty.get("http://food2fork.com/api/search?key=ed56722ff1a2f872b479c1f8c6002118&q=#{params[:query]}&sort=r")
+    data = JSON.parse(response.body)
+    @recipes = data['recipes']
 
-    @info = response.body
-    @recipe = @info['recipes']
+
+    # get = HTTParty.get("http://food2fork.com/api/get?key=ed56722ff1a2f872b479c1f8c6002118&rId=#{recipe_key}")
+    # data2 = JSON.parse(get.body)
+    # @actuall_recipe = data2['recipe']
 
     @posts = Post.all
     @post_count = Post.all.count

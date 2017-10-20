@@ -1,8 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @post.image %>
-</p>
 
 <% if current_user != @post.user %>
 
@@ -21,25 +18,35 @@
     <% end %>
 
 
-    <p>
-      <strong>Title:</strong>
-      <%= @post.title %>
-    </p>
+    <div class="container">
 
-    <p>
-      <strong>Description:</strong>
-      <%= @post.description %>
-    </p>
+  <p class="hero-font text-center">
+    <strong ><%= @post.title %></strong>
+  </p>
 
-    <p>
-      <strong>Recipe:</strong>
-      <%= @post.recipe %>
-    </p>
+  <span style="float: left; padding-right: 40px;">
+    <%= image_tag @post.image %>
+  </span>
 
-    <p>
-      <strong>Duration:</strong>
-      <%= @post.duration %>
-    </p>
+  <p>
+    <%= @post.description %>
+  </p>
+
+  <p>
+    <strong>Method:</strong>
+    <%= @post.recipe %>
+  </p>
+
+  <p>
+    <%= @post.duration %> minutes
+  </p>
+
+  <p>
+    <strong>Posted by: </strong>
+    <%= @post.user.profile.first_name %>
+  </p>
+
+</div>
 
      <% if @post.comments %>
      <div>
