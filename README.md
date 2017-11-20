@@ -1,8 +1,10 @@
 # Hackathon project - My Cookbook
 
 This is a Hackathon project by Mizuki, Chy and Tomomi.
-
 The app is a social networking food portal for those who love good food and want to interect with cool foodies.
+
+# Slides
+https://docs.google.com/presentation/d/13ACDIVLy1axFwws2PpmKoFZqStt2cmPT4wGfbdMXYWU/edit?usp=sharing
 
 # Problem defining
 After brainstorming, we have listed the following problems we face day to day life.
