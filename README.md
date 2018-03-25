@@ -33,6 +33,7 @@ We defined our target as following.
 
 # Here is our app
 https://radiant-beach-49950.herokuapp.com
+To log in enter test@test.com pw: 123123
 
 # git repository address
 git@github.com:MizukiZ/My-cook-book.git
